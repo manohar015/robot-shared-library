@@ -1,7 +1,7 @@
-def info(message) {
+def info(message) {                 // Declaring a funciton in groovy 
     echo "INFO: ${message}"
 }
 
 
 
-info
+info("Hai")  // Calling a function 
