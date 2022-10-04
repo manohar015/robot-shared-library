@@ -6,10 +6,10 @@
 
 // info("Hai")  // Calling a function 
 
-def info(message, URL ) {                 // Declaring a funciton in groovy 
+def info(message, URL) {                 // Declaring a funciton in groovy 
     echo "INFO: ${message} , ${URL}"
 }
 
 
 
-info("Hai")  // Calling a function 
+info("Hai" , "google.com")  // Calling a function 
