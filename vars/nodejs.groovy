@@ -17,7 +17,7 @@ def call() {
                     sh "npm install"
                 }
             }
-            stage('Lint Checks') {
+            stage('Lint Check') {
                 steps {
                     script { 
                         nodejs.lintCheck()
