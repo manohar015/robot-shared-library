@@ -1,4 +1,4 @@
-def lintChecks() {
+def lintCheck() {
     sh ''' 
          # We want Devs to handle the lint checks failure 
          # npm i jslint 
@@ -12,7 +12,6 @@ def call() {
     pipeline {
         agent any 
         stages {
-            
             stage('Downloading the dependencies') {
                 steps {
                     sh "npm install"
@@ -21,7 +20,7 @@ def call() {
             stage('Lint Checks') {
                 steps {
                     script { 
-                        nodejs.lintChecks()
+                        nodejs.lintCheck()
                     }
                 }
             }
