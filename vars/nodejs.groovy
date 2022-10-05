@@ -1,4 +1,4 @@
-def lintCheck() {
+def lintChecks() {
     sh ''' 
          # We want Devs to handle the lint checks failure 
          # npm i jslint 
