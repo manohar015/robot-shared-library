@@ -18,7 +18,6 @@ def call() {
                     sh "npm install"
                 }
             }
-
             stage('Lint Checks') {
                 steps {
                     script { 
