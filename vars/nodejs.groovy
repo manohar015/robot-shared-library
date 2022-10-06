@@ -10,7 +10,7 @@ def lintCheck() {
 
 def sonarCheck() {
     sh ''' 
-        sonar-scanner
+        sonar-scanner -Dsonar.host.url=http://localhost:9000
     ''' 
 }
 
