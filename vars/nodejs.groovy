@@ -8,6 +8,12 @@ def lintCheck() {
     ''' 
 }
 
+def sonarCheck() {
+    sh ''' 
+        sonar-scanner
+    ''' 
+}
+
 def call() {
     pipeline {
         agent any 
