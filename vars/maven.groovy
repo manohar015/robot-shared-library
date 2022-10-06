@@ -1,6 +1,6 @@
 def lintCheck() {
     sh ''' 
-         echo Starting lint checks 
+         echo Starting lint checks ${COMPONENT}
          mvn checkstyle:check || true 
          echo Lint Checks Completed for ${COMPONENT}
     ''' 
