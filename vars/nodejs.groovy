@@ -76,7 +76,6 @@ def call() {
                     echo 'echo'
                 }
             }
-
         }    // end of statges 
     }
 }
