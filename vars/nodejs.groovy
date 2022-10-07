@@ -61,7 +61,7 @@ def call() {
 
             stage('Prepare Artifacts') {
                 when {
-                    expression { env.TAG_NAME }
+                    expression { env.TAG_NAME != null }   // Only runs when you run this against the TAG
                 }
                 steps {
                     echo 'echo'
@@ -69,6 +69,9 @@ def call() {
             }
 
             stage('Upload Artifacts') {
+                when {
+                    expression { env.TAG_NAME != null }   // Only runs when you run this against the TAG
+                }
                 steps {
                     echo 'echo'
                 }
