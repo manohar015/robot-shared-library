@@ -65,6 +65,12 @@ def call() {
                 }
             }
 
+            stage('Upload Artifacts') {
+                steps {
+                    echo 'echo'
+                }
+            }
+
         }    // end of statges 
     }
 }
