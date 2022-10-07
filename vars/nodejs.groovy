@@ -60,6 +60,9 @@ def call() {
             }
 
             stage('Prepare Artifacts') {
+                when {
+                    expression { env.TAG_NAME }
+                }
                 steps {
                     echo 'echo'
                 }
