@@ -22,7 +22,7 @@ def call() {
                 steps {
                     script { 
                         mvn clean compile 
-                        env.ARGS=-Dsonar.projectKey=target/
+                        env.ARGS="-Dsonar.projectKey=target/"
                         common.sonarCheck()
                     }
                 }
