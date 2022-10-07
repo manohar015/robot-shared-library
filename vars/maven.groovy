@@ -36,17 +36,16 @@ def call() {
                     }
                 stage('Integration Tests') {
                     steps {
-                        sh 'Unit Test Cases Completed'
+                        sh 'Integration Test Cases Completed'
                          }
                     }
-                stage('Unit Tests') {
+                stage('Functional Tests') {
                     steps {
-                        sh 'Unit Test Cases Completed'
+                        sh 'Functional Test Cases Completed'
                          }
                     }
                }
-           }
-
+            }
         }    // end of statges 
     }
 }
