@@ -59,7 +59,11 @@ def call() {
                 }
             }
 
-            stage('')
+            stage('Prepare Artifacts') {
+                steps {
+                    echo 'echo'
+                }
+            }
 
         }    // end of statges 
     }
