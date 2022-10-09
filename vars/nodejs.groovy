@@ -13,6 +13,7 @@ def call() {
         agent any 
     environment {
         SONAR      = credentials('SONAR')
+        NEXUS      = credentials('NEXUS')
     }
  
         stages {
@@ -64,7 +65,11 @@ def call() {
                     expression { env.TAG_NAME != null }   // Only runs when you run this against the TAG
                 }
                 steps {
-                    echo 'echo'
+                    sh ''' 
+                        npm install 
+                        zip ${COMPONENT}.zip node_modules server.js
+
+                    ''' 
                 }
             }
 
@@ -73,7 +78,9 @@ def call() {
                     expression { env.TAG_NAME != null }   // Only runs when you run this against the TAG
                 }
                 steps {
-                    echo 'echo'
+                    sh ''' 
+                        curl -f -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file pom.xml http://172.31.0.75:8081/repository/${COMPONENT}/${COMPONENT}.zip
+                    '''
                 }
             }
         }    // end of statges 
