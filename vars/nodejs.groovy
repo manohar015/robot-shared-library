@@ -60,6 +60,18 @@ def call() {
                 }
             }
 
+            stage('Check the release') {
+                when {
+                    expression { env.TAG_NAME != null }   // Only runs when you run this against the TAG
+                }
+                steps {
+                    script {
+                        def UPLOAD_STATUS=sh(returnStdout: true, script: "curl http://172.31.0.75:8081/service/rest/repository/browse/\${COMPONENT} | grep \${COMPONENT}-\${TAG_NAME}.zip")
+                        print UPLOAD_STATUS
+                    }
+                }
+            }
+
             stage('Prepare Artifacts') {
                 when {
                     expression { env.TAG_NAME != null }   // Only runs when you run this against the TAG
