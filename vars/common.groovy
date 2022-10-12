@@ -75,8 +75,8 @@ def artifact() {
              else if(env.APPTYPE == "maven") {
                 sh ''' 
                     mvn clean package 
-                    mv target/shipping-1.0.jar shipping.jar
-                    zip -r ${COMPONENT}-${TAG_NAME}.zip node_modules server.js
+                    mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
+                    zip -r ${COMPONENT}-${TAG_NAME}.zip ${COMPONENT}.jar
 
                    ''' 
             }
