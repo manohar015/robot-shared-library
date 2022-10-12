@@ -84,6 +84,20 @@ def artifact {
                                        
                    ''' 
             }
+
+             else if(env.APPTYPE == "python") {
+                sh ''' 
+                    echo hai 
+                                       
+                   ''' 
+            }
+             else {
+                sh ''' 
+                    echo Contact Cloud DevOps Team 
+                                       
+                   ''' 
+            }
+          
             stage('Upload Artifacts') {
                 when {
                     expression { env.TAG_NAME != null }   // Only runs when you run this against the TAG
