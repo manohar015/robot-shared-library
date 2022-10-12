@@ -23,15 +23,13 @@ def lintCheck() {
             echo Lint Checks Completed for ${COMPONENT}
          ''' 
       }
-       else if (env.APPTYPE == 'maven'){
+       else {
         sh ''' 
             echo Starting lint checks ${COMPONENT}
-            mvn checkstyle:check || true                        # lint checks
             echo Lint Checks Completed for ${COMPONENT}
          ''' 
       }
-
-  }
+    }
 }
 
 
