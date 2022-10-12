@@ -61,7 +61,7 @@ def artifact {
                 print UPLOAD_STATUS       
              }
         }
-        
+    if(env.UPLOAD_STATUS == "") {
        stage('Prepare Artifacts') {
                 when {
                     expression { env.UPLOAD_STATUS == "" }
@@ -86,6 +86,7 @@ def artifact {
                     '''
                 }
             }
+        }
 }
 
 // def testCases() {
