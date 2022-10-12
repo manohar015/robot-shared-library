@@ -1,3 +1,13 @@
+env.APPTYPE="maven"
+def call() {
+    node {
+        common.lintCheck()
+        env.ARGS="-Dsonar.sources=."
+        common.sonarCheck()
+    }
+}
+
+
 
 def call() {
     pipeline {
