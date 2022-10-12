@@ -8,7 +8,11 @@ def lintCheck() {
     ''' 
 }
 
-def call
+def call() {
+    node {
+        common.lintCheck 
+    }
+}
 
 def call() {
     pipeline {
