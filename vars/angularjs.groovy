@@ -1,11 +1,3 @@
-def lintCheck() {
-    sh ''' 
-         echo Starting lint checks ${COMPONENT}
-         echo Lint Checks Completed for ${COMPONENT}
-       
-       ''' 
-}
-
 def call() {
     pipeline {
         agent any 
