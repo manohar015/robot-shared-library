@@ -65,7 +65,9 @@ def artifact() {
        stage('Prepare Artifacts') {
              if(env.APPTYPE == "nodejs") {
                 sh ''' 
+                    ls -ltr 
                     npm install 
+                    ls -ltr 
                     zip ${COMPONENT}-${TAG_NAME}.zip node_modules server.js
                    
                    ''' 
