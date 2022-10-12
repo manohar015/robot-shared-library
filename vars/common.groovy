@@ -3,6 +3,7 @@ def lintCheck() {
 
     if (env.APPTYPE == 'nodejs') {
       sh ''' 
+            # npm install 
             # We want Devs to handle the lint checks failure 
             # npm i jslint 
             # node_modules/jslint/bin/jslint.js  server.js || true 
