@@ -95,7 +95,7 @@ def artifact() {
 
              else if(env.APPTYPE == "angularjs") {
                 sh ''' 
-                    echo hai                                       
+                    zip                                   
                    ''' 
             }
 
