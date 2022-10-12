@@ -96,13 +96,13 @@ def artifact() {
              else if(env.APPTYPE == "angularjs") {
                 sh ''' 
                     cd static
-                    zip -r ${COMPONENT}-${TAG_NAME}.zip *                                 
+                    zip -r ../${COMPONENT}-${TAG_NAME}.zip *                                 
                    ''' 
             }
 
              else if(env.APPTYPE == "python") {
                 sh ''' 
-                    echo hai                                     
+                   zip -r ../${COMPONENT}-${TAG_NAME}.zip *                                   
                    ''' 
             }
              else {
