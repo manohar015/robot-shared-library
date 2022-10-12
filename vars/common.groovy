@@ -36,7 +36,18 @@ def lintCheck() {
 
 
 def testCases() {
-  
+    stage('Test Cases') {
+        def stages = [:]
+
+        stages["Unit Test Cases"] = {
+             sh 'echo Unit Test Cases Completed'
+        }
+        stages["linux"] = {
+            echo "build for linux"
+        }
+
+        parallel(stages)
+    }
 }
 
 def testCases() {
