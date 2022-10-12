@@ -73,11 +73,17 @@ def artifact {
              else if(env.APPTYPE == "maven") {
                 sh ''' 
                     mvn clean compile
-                    zip ${COMPONENT}-${TAG_NAME}.zip node_modules server.js
+                    
                    
                    ''' 
             }
 
+             else if(env.APPTYPE == "angularjs") {
+                sh ''' 
+                    echo hai 
+                                       
+                   ''' 
+            }
             stage('Upload Artifacts') {
                 when {
                     expression { env.TAG_NAME != null }   // Only runs when you run this against the TAG
