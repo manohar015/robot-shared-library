@@ -68,14 +68,16 @@ def artifact() {
                     ls -ltr 
                     npm install 
                     ls -ltr 
-                    zip ${COMPONENT}-${TAG_NAME}.zip node_modules server.js
+                    zip -r ${COMPONENT}-${TAG_NAME}.zip node_modules server.js
                    
                    ''' 
             }
              else if(env.APPTYPE == "maven") {
                 sh ''' 
                     mvn clean package 
-                                                        
+                    mv target/shipping-1.0.jar shipping.jar
+                    zip -r ${COMPONENT}-${TAG_NAME}.zip node_modules server.js
+
                    ''' 
             }
 
