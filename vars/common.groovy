@@ -72,9 +72,8 @@ def artifact {
             }
              else if(env.APPTYPE == "maven") {
                 sh ''' 
-                    mvn clean compile
-                    
-                   
+                    mvn clean compile                   
+                  
                    ''' 
             }
 
@@ -97,7 +96,7 @@ def artifact {
                                        
                    ''' 
             }
-          
+       } 
             stage('Upload Artifacts') {
                 when {
                     expression { env.TAG_NAME != null }   // Only runs when you run this against the TAG
