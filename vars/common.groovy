@@ -34,25 +34,25 @@ def lintCheck() {
 
 def testCases() {
     stage('Test Cases') {
-            parallel {
-                stage('Unit Tests') {
-                    steps {
-                        sh 'echo Unit Test Cases Completed'
-                         }
-                    }
-                stage('Integration Tests') {
-                    steps {
-                        sh 'echo Integration Test Cases Completed'
-                         }
-                    }
-                stage('Functional Tests') {
-                    steps {
-                        sh 'echo Functional Test Cases Completed'
-                         }
-                    }
+       parallel {
+          stage('Unit Tests') {
+                steps {
+                   sh 'echo Unit Test Cases Completed'
+                     }
                 }
+          stage('Integration Tests') {
+                 steps {
+                   sh 'echo Integration Test Cases Completed'
+                      }
+                  }
+          stage('Functional Tests') {
+                steps {
+                    sh 'echo Functional Test Cases Completed'
+                      }
+                 }
             }
-}
+        }
+   }
 
 def sonarCheck() {
     sh ''' 
