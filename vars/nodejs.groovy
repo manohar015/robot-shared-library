@@ -2,6 +2,8 @@ env.APPTYPE="nodejs"
 def call() {
     node {
         common.lintCheck()
+        env.ARGS="-Dsonar.sources=."
+                        common.sonarCheck()
     }
 }
 
@@ -20,19 +22,11 @@ def call() {
                 }
             }
 
-            stage('Lint Check') {
-                steps {
-                    script { 
-                        lintCheck()
-                    }
-                }
-            }
 
             stage('Sonar Check') {
                 steps {
                     script { 
-                        env.ARGS="-Dsonar.sources=."
-                        common.sonarCheck()
+
                     }
                 }
             }
