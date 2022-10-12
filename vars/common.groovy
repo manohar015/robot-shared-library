@@ -61,10 +61,9 @@ def artifact {
                 print UPLOAD_STATUS       
              }
         }
-
-            stage('Prepare Artifacts') {
+        
+       stage('Prepare Artifacts') {
                 when {
-                    expression { env.TAG_NAME != null }   // Only runs when you run this against the TAG
                     expression { env.UPLOAD_STATUS == "" }
                 }
                 steps {
