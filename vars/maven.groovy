@@ -2,10 +2,10 @@ def call() {
     node {
         git branch: 'main', url: "https://github.com/b50-clouddevops/${COMPONENT}.git"
         env.APPTYPE="maven"
+        common.sonarCheck()
         common.lintCheck()
         sh 'mvn clean compile'
         env.ARGS="-Dsonar.java.binaries=target/"
-        common.sonarCheck()
         common.testCases()
         if (env.TAG_NAME != null) {
             common.artifact()
