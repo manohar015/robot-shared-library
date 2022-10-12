@@ -106,8 +106,8 @@ def artifact() {
                    ''' 
             }
              else {
-                sh ''' 
-                    
+                sh '''                
+                    echo "This is an assignment for go"                                   
                    ''' 
             }
        } 
