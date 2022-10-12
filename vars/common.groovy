@@ -53,21 +53,6 @@ def testCases() {
     }
 }
 
-def testCases() {
-    stage('Test Cases') {
-          stage('Unit Tests') {
-               sh 'echo Unit Test Cases Completed'
-              }    
-          stage('Integration Tests') {
-                sh 'echo Integration Test Cases Completed'
-              }
-                  
-          stage('Functional Tests') {
-                sh 'echo Functional Test Cases Completed'      
-                 }
-            }
-}
-
 def sonarCheck() {
     sh ''' 
         # sonar-scanner -Dsonar.host.url=http://172.31.0.99:9000 -Dsonar.projectKey=${COMPONENT} -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW} ${ARGS}
@@ -79,3 +64,4 @@ def sonarCheck() {
 
 // For non-Java, code source partamter is  -Dsonar.sources=. 
 // For Java, code source partamter is  -Dsonar.projectKey=target/ 
+// Reference for paralle in scriptd pipeline : https://stackoverflow.com/questions/46834998/scripted-jenkinsfile-parallel-stage
