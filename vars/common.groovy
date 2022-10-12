@@ -54,7 +54,7 @@ def testCases() {
 }
 
 
-def artifact {
+def artifact() {
       stage('Check the release') {
            script {
                 env.UPLOAD_STATUS=sh(returnStdout: true, script: 'curl -L -s http://172.31.0.75:8081/service/rest/repository/browse/${COMPONENT} | grep ${COMPONENT}-${TAG_NAME}.zip || true')
@@ -94,13 +94,13 @@ def artifact {
             }
        } 
           stage('Upload Artifacts') {
-
-                    sh ''' 
-                        curl -f -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.0.75:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip
-                    '''
+                sh ''' 
+                   curl -f -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.0.75:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip
+                  
+                   '''
              }
         }
-}
+    }
 
 // def testCases() {
 //     stage('Test Cases') {
