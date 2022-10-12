@@ -63,16 +63,12 @@ def artifact {
         }
     if(env.UPLOAD_STATUS == "") {
        stage('Prepare Artifacts') {
-                when {
-                    expression { env.UPLOAD_STATUS == "" }
-                }
-                steps {
-                    sh ''' 
-                        npm install 
-                        zip ${COMPONENT}-${TAG_NAME}.zip node_modules server.js
+             if(env.APPTYPE == "") {
+                sh ''' 
+                    npm install 
+                    zip ${COMPONENT}-${TAG_NAME}.zip node_modules server.js
 
                     ''' 
-                }
             }
 
             stage('Upload Artifacts') {
