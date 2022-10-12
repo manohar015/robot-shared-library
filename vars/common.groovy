@@ -19,6 +19,7 @@ def lintCheck() {
          ''' 
       } else if (env.APPTYPE == 'maven'){
         sh ''' 
+            # mvn clean compile 
             echo Starting lint checks ${COMPONENT}
             mvn checkstyle:check || true                        # lint checks
             echo Lint Checks Completed for ${COMPONENT}
