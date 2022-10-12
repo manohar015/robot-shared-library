@@ -8,6 +8,8 @@ def lintCheck() {
     ''' 
 }
 
+def call
+
 def call() {
     pipeline {
         agent any 
