@@ -74,7 +74,8 @@ def artifact() {
             }
              else if(env.APPTYPE == "maven") {
                 sh ''' 
-                    mvn clean compile                                    
+                    mvn clean package 
+                                                        
                    ''' 
             }
 
