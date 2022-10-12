@@ -3,6 +3,7 @@ def call() {
         git branch: 'main', url: "https://github.com/b50-clouddevops/${COMPONENT}.git"
         env.APPTYPE="maven"
         common.lintCheck()
+        mvn clean compile
         env.ARGS="-Dsonar.java.binaries=target/"
         common.sonarCheck()
         common.testCases()
