@@ -1,12 +1,5 @@
-def lintCheck() {
-    sh ''' 
-         # We want Devs to handle the lint checks failure 
-         # npm i jslint 
-         # node_modules/jslint/bin/jslint.js  server.js || true 
-         echo Starting lint checks
-         echo Lint Checks Completed for ${COMPONENT}
-    ''' 
-}
+
+
 
 def call() {
     node {
