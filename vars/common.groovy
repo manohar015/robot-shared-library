@@ -11,7 +11,17 @@ def lintCheck() {
       
         ''' 
         } else if (env.APPTYPE == 'python'){
-            echo 'I execute elsewhere'
+        sh ''' 
+          echo Starting lint checks ${COMPONENT}
+          # pylint *.py           # lint checks
+          echo Lint Checks Completed for ${COMPONENT}
+         ''' 
+      } else if (env.APPTYPE == 'maven'){
+        sh ''' 
+          echo Starting lint checks ${COMPONENT}
+          # pylint *.py           # lint checks
+          echo Lint Checks Completed for ${COMPONENT}
+         ''' 
       }
 
   }
