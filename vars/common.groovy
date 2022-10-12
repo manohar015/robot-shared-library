@@ -102,9 +102,9 @@ def artifact() {
                   
              '''
               }
-            }
-        }
-    }
+          }
+      }
+  }
 
 // def testCases() {
 //     stage('Test Cases') {
