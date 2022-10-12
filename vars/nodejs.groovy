@@ -1,6 +1,6 @@
-env.APPTYPE="nodejs"
 def call() {
     node {
+        env.APPTYPE="nodejs"
         common.lintCheck()
         env.ARGS="-Dsonar.sources=."
         common.sonarCheck()

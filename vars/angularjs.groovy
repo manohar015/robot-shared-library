@@ -1,6 +1,7 @@
-env.APPTYPE="angularjs"
+
 def call() {
     node {
+        env.APPTYPE="angularjs"
         common.lintCheck()
         env.ARGS="-Dsonar.sources=."
         common.sonarCheck()
