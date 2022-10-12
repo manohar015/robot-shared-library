@@ -1,3 +1,13 @@
+env.APPTYPE="maven"
+def call() {
+    node {
+        common.lintCheck()
+        env.ARGS="-Dsonar.java.binaries=target/"
+        common.sonarCheck()
+    }
+}
+
+
 def call() {
     pipeline {
         agent any 
