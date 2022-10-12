@@ -72,42 +72,33 @@ def artifact {
             }
              else if(env.APPTYPE == "maven") {
                 sh ''' 
-                    mvn clean compile                   
-                  
+                    mvn clean compile                                    
                    ''' 
             }
 
              else if(env.APPTYPE == "angularjs") {
                 sh ''' 
-                    echo hai 
-                                       
+                    echo hai                                       
                    ''' 
             }
 
              else if(env.APPTYPE == "python") {
                 sh ''' 
-                    echo hai 
-                                       
+                    echo hai                                     
                    ''' 
             }
              else {
                 sh ''' 
-                    echo Contact Cloud DevOps Team 
-                                       
+                    echo Contact Cloud DevOps Team                                       
                    ''' 
             }
        } 
-            stage('Upload Artifacts') {
-                when {
-                    expression { env.TAG_NAME != null }   // Only runs when you run this against the TAG
-                    expression { env.UPLOAD_STATUS == "" }
-                }
-                steps {
+          stage('Upload Artifacts') {
+
                     sh ''' 
                         curl -f -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.0.75:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip
                     '''
-                }
-            }
+             }
         }
 }
 
