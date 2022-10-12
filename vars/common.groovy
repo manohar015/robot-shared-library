@@ -63,12 +63,19 @@ def artifact {
         }
     if(env.UPLOAD_STATUS == "") {
        stage('Prepare Artifacts') {
-             if(env.APPTYPE == "") {
+             if(env.APPTYPE == "nodejs") {
                 sh ''' 
                     npm install 
                     zip ${COMPONENT}-${TAG_NAME}.zip node_modules server.js
-
-                    ''' 
+                   
+                   ''' 
+            }
+             else if(env.APPTYPE == "maven") {
+                sh ''' 
+                    mvn clean compile
+                    zip ${COMPONENT}-${TAG_NAME}.zip node_modules server.js
+                   
+                   ''' 
             }
 
             stage('Upload Artifacts') {
