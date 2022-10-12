@@ -102,12 +102,12 @@ def artifact() {
 
              else if(env.APPTYPE == "python") {
                 sh ''' 
-                   zip -r ../${COMPONENT}-${TAG_NAME}.zip *                                   
+                   zip -r ${COMPONENT}-${TAG_NAME}.zip *.py *.ini requirements.txt                              
                    ''' 
             }
              else {
                 sh ''' 
-                    echo Contact Cloud DevOps Team                                       
+                    
                    ''' 
             }
        } 
