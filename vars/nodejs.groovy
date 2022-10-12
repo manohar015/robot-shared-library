@@ -6,7 +6,7 @@ def call() {
         common.sonarCheck()
         common.testCases()
         if (env.TAG_NAME != null) {
-            common.artifacts()
+            common.artifact()
         }
     }
 }
