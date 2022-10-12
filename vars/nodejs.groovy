@@ -10,7 +10,7 @@ def lintCheck() {
 
 def call() {
     node {
-        common.lintCheck 
+        common.lintCheck()
     }
 }
 
