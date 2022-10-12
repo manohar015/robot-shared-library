@@ -34,6 +34,11 @@ def lintCheck() {
     }
 }
 
+
+def testCases() {
+  
+}
+
 def testCases() {
     stage('Test Cases') {
           stage('Unit Tests') {
