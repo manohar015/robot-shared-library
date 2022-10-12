@@ -3,24 +3,31 @@ def lintCheck() {
 
     if (env.APPTYPE == 'nodejs') {
       sh ''' 
-         # We want Devs to handle the lint checks failure 
-         # npm i jslint 
-         # node_modules/jslint/bin/jslint.js  server.js || true 
-         echo Starting lint checks
-         echo Lint Checks Completed for ${COMPONENT}
+            # We want Devs to handle the lint checks failure 
+            # npm i jslint 
+            # node_modules/jslint/bin/jslint.js  server.js || true 
+            echo Starting lint checks
+            echo Lint Checks Completed for ${COMPONENT}
       
         ''' 
         } else if (env.APPTYPE == 'python'){
         sh ''' 
-          echo Starting lint checks ${COMPONENT}
-          # pylint *.py           # lint checks
-          echo Lint Checks Completed for ${COMPONENT}
+            echo Starting lint checks ${COMPONENT}
+            # pylint *.py           # lint checks
+            echo Lint Checks Completed for ${COMPONENT}
          ''' 
       } else if (env.APPTYPE == 'maven'){
         sh ''' 
-          echo Starting lint checks ${COMPONENT}
-          # pylint *.py           # lint checks
-          echo Lint Checks Completed for ${COMPONENT}
+            echo Starting lint checks ${COMPONENT}
+            mvn checkstyle:check || true                        # lint checks
+            echo Lint Checks Completed for ${COMPONENT}
+         ''' 
+      }
+       else if (env.APPTYPE == 'maven'){
+        sh ''' 
+            echo Starting lint checks ${COMPONENT}
+            mvn checkstyle:check || true                        # lint checks
+            echo Lint Checks Completed for ${COMPONENT}
          ''' 
       }
 
