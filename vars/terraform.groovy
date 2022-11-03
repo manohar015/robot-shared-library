@@ -1,11 +1,14 @@
 def  call() {
     parameters {
             choice(name: 'ENV',choices:"dev\nprod", description: "Choose Environment to build!")
-            choice(name: 'ACTION',choices:"apply\ndestroy", description: "Choose Environment to build!")
-                
-                
-               
-                }
+            choice(name: 'ACTION',choices:"apply\ndestroy", description: "Choose apply or destroy")
+        }   
+
+    node {
+        
+        
+    }
+
 }
 
 
