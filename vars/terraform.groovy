@@ -1,9 +1,10 @@
 def  call() {
     parameters {
-            choice(
-                name: 'ENV',
-                choices:"dev\nLinux\nMAC",
-                description: "Choose Environment to build!")
+            choice(name: 'ENV',choices:"dev\nprod", description: "Choose Environment to build!")
+            choice(name: 'ACTION',choices:"apply\ndestroy", description: "Choose Environment to build!")
+                
+                
+               
                 }
 }
 
