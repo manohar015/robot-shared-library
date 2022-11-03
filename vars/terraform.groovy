@@ -8,21 +8,20 @@ def  call() {
         sh "rm -rf *"
         git branch: 'main', url: "https://github.com/b50-clouddevops/${REPONAME}.git"  
 
-        state('Terraform Init'){
+        stage('Terraform Init'){
             sh ''' 
                 terrafile -f env-${ENV}/Terrafile
                 terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars
             '''
         }  
 
-        state('Terraform Plan'){
+        stage('Terraform Plan'){
             sh ''' 
-
                 terraform plan -var-file=env-${ENV}/${ENV}.tfvars
             '''
         }  
 
-        state('Terraform Apply'){
+        stage('Terraform Apply'){
             sh ''' 
                 terraform ${ACTION} -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
             '''
