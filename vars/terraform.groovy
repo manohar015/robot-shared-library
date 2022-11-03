@@ -14,6 +14,7 @@ properties([
 
         stage('Terraform Init'){
             sh ''' 
+                cd terraform-mutable
                 terrafile -f env-${ENV}/Terrafile
                 terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars
             '''
