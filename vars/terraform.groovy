@@ -4,6 +4,14 @@ def  call() {
             choice(name: 'ACTION',choices:"apply\ndestroy", description: "Choose apply or destroy")
         }   
 
+properties([
+    [
+        parameters([
+                string(defaultValue: '/data', name: 'Directory'),
+                string(defaultValue: 'Dev', name: 'DEPLOY_ENV')
+        ])   
+    ])
+
     node {
         sh "rm -rf *"
         git branch: 'main', url: "https://github.com/b50-clouddevops/${REPONAME}.git"  
