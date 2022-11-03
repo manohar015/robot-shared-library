@@ -1,14 +1,9 @@
 def  call() {
-    parameters {
-            choice(name: 'ENV',choices:"dev\nprod", description: "Choose Environment to build!")
-            choice(name: 'ACTION',choices:"apply\ndestroy", description: "Choose apply or destroy")
-        }   
 
 properties([
-    [
         parameters([
-                string(defaultValue: '/data', name: 'Directory'),
-                string(defaultValue: 'Dev', name: 'DEPLOY_ENV')
+            choice(name: 'ENV',choices:"dev\nprod", description: "Choose Environment to build!")
+            choice(name: 'ACTION',choices:"apply\ndestroy", description: "Choose apply or destroy")
         ])   
     ])
 
@@ -39,7 +34,7 @@ properties([
 
 }
 
-
+// Ref : https://stackoverflow.com/questions/53747772/is-it-possible-to-make-a-parameterized-scripted-pipeline-in-jenkins-by-listing-t
 // def call() {
 //     pipeline {
 //         agent any 
