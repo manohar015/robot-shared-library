@@ -29,10 +29,9 @@ properties([
             sh ''' 
                 terraform ${ACTION} -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
             '''
+            }            
         }
-        
     }
-
 }
 
 // Ref : https://stackoverflow.com/questions/53747772/is-it-possible-to-make-a-parameterized-scripted-pipeline-in-jenkins-by-listing-t
