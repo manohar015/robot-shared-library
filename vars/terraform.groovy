@@ -2,13 +2,9 @@ def  call() {
 
 properties([
         parameters([
-            choice(name: 'ENV',choices:"dev\nprod", description: "Choose Environment to build!")
-            choice(name: 'ACTION',choices:"apply\ndestroy", description: "Choose apply or destroy")
-
-                choice(defaultValue: '/data', name: 'Directory'),
-                string(defaultValue: 'Dev', name: 'DEPLOY_ENV')
-
-        ])   
+            choice(choices: 'dev\nprod', description: "Chose the Env", name: "ENV"),
+            choice(choices: 'apply\ndestroy', description: "Choose apply or destroy", name: "ACTION"),
+        ]) ,
     ])
 
     node {
