@@ -1,7 +1,7 @@
 def  call() {
 
 if(!env.TERRAFORM_DIR) {
-
+    env.TERRAFORM_DIR = "./"
 }
 
 properties([
@@ -18,7 +18,7 @@ properties([
 
         stage('Terraform Init'){
             sh ''' 
-                cd terraform-mutable
+                cd ${TERRAFORM_DIR}
                 terrafile -f env-${ENV}/Terrafile
                 terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars
             '''
