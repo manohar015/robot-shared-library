@@ -20,7 +20,7 @@ properties([
             sh ''' 
                 cd ${TERRAFORM_DIR}
                 terrafile -f env-${ENV}/Terrafile
-                terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
+                terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars\
             '''
         }  
 
