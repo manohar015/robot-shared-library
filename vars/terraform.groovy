@@ -26,12 +26,14 @@ properties([
 
         stage('Terraform Plan'){
             sh ''' 
+                cd ${TERRAFORM_DIR}
                 terraform plan -var-file=env-${ENV}/${ENV}.tfvars
             '''
         }  
 
         stage('Terraform Apply'){
             sh ''' 
+                cd ${TERRAFORM_DIR}
                 terraform ${ACTION} -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
             '''
             }            
