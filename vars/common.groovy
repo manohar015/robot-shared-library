@@ -1,8 +1,8 @@
 def sonarCheck() {
    stage('Sonar Checks') {
     sh ''' 
-        # sonar-scanner -Dsonar.host.url=http://172.31.0.99:9000 -Dsonar.projectKey=${COMPONENT} -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW} ${ARGS}
-        # sonar-quality-gate.sh ${SONAR_USR} ${SONAR_PSW} 172.31.0.99 ${COMPONENT} || true
+        # sonar-scanner -Dsonar.host.url=http://44.204.137.132:9000 -Dsonar.projectKey=${COMPONENT} -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW} ${ARGS}
+        # sonar-quality-gate.sh ${SONAR_USR} ${SONAR_PSW} 44.204.137.132 ${COMPONENT} || true
         echo sonarchecks for ${COMPONENT}
         
       '''
@@ -114,7 +114,7 @@ def artifact() {
       stage('Upload Artifacts') {
          withCredentials([usernamePassword(credentialsId: 'NEXUS', usernameVariable: 'NEXUS_USR', passwordVariable: 'NEXUS_PSW')]) {
             sh ''' 
-             curl -f -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.0.75:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip
+             curl -f -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.14.170:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip
                   
              '''
               }
