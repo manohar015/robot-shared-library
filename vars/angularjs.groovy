@@ -1,6 +1,6 @@
 def call() {
     node {
-        git branch: 'main', url: "https://github.com/b50-clouddevops/${COMPONENT}.git"
+        git branch: 'main', url: "https://github.com/manohar015/${COMPONENT}.git"
         env.APPTYPE="angularjs"
         common.sonarCheck()
         common.lintCheck()
