@@ -37,7 +37,7 @@ properties([
             sh ''' 
                 cd ${TERRAFORM_DIR}
                 export TF_VAR_APP_VERSION=${APP_VERSION}
-                terraform ${ACTION} -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
+                terraform ${ACTION} -var-file=env-${ENV}/${ENV}.tfvars -auto-approve -parallelism 1
             '''
             }            
         }
