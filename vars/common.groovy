@@ -49,7 +49,7 @@ def lintCheck() {
 
 def testCases() {
     stage('Test Cases') {
-        def stages = [:]
+       // def stages = [:]
 
         stages["Unit Test Cases"] = {
              sh 'echo Unit Test Cases Completed'
