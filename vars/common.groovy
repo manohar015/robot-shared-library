@@ -1,8 +1,8 @@
 def sonarCheck() {
    stage('Sonar Checks') {
     sh ''' 
-        # sonar-scanner -Dsonar.host.url=http://44.204.137.132:9000 -Dsonar.projectKey=${COMPONENT} -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW} ${ARGS}
-        # sonar-quality-gate.sh ${SONAR_USR} ${SONAR_PSW} 44.204.137.132 ${COMPONENT} || true
+        # sonar-scanner -Dsonar.host.url=http://172.31.15.60:9000 -Dsonar.projectKey=${COMPONENT} -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW} ${ARGS}
+        # sonar-quality-gate.sh ${SONAR_USR} ${SONAR_PSW} 172.31.15.60 ${COMPONENT} || true
         echo sonarchecks for ${COMPONENT}
         
       '''
@@ -69,7 +69,7 @@ def testCases() {
 def artifact() {
       stage('Check the release') {
            script {
-                env.UPLOAD_STATUS=sh(returnStdout: true, script: 'curl -L -s http://172.31.0.75:8081/service/rest/repository/browse/${COMPONENT} | grep ${COMPONENT}-${TAG_NAME}.zip || true')
+                env.UPLOAD_STATUS=sh(returnStdout: true, script: 'curl -L -s http://172.31.14.170:8081/service/rest/repository/browse/${COMPONENT} | grep ${COMPONENT}-${TAG_NAME}.zip || true')
                 print UPLOAD_STATUS       
              }
         }
