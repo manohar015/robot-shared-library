@@ -4,8 +4,7 @@ if(!env.TERRAFORM_DIR) {
     env.TERRAFORM_DIR = "./"
 }
 
-export TF_LOG="DEBUG"
-export TF_LOG_PATH="/home/centos/terraform-debug.log"
+
 properties([
         parameters([
             choice(choices: 'dev\nprod', description: "Chose the Env", name: "ENV"),
